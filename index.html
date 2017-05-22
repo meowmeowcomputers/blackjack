@@ -3,6 +3,44 @@
     <script src="//code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function () {
+      $("deal-button").click(function() {
+
+      });
+
+
+    });
+    </script>
+    <style>
+    #dealer-hand {
+      margin:auto;
+      text-align: left;
+      width:50%;
+      height: 100px;
+      background: rgba(0,101,10,0.5);
+      color: green;
+      padding: 1rem;
+    }
+    #player-hand {
+      margin:auto;
+      text-align: left;
+      width:50%;
+      height: 100px;
+      background: rgba(0,0,0,0.5);
+      color: green;
+      padding: 1rem;
+      }
+    #table {
+      margin: auto;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      background: rgba(330,101,10,0.5);
+      font-family: helvetica;
+
+    }
+    </style>
   <title>B L A C K J A C K</title>
   </head>
 
@@ -11,6 +49,8 @@
       <label>Dealer: </label>
       <label id="dealer-points" class="points"></label>
       <div id="dealer-hand" class="hand">
+        <img src='images/2_of_clubs.png' width= 75px height=100 px>
+          <img src='images/4_of_hearts.png' width= 75px height=100 px>
       </div>
       <label>Player: </label>
       <label id="player-points" class="points"></label>
