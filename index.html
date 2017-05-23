@@ -5,10 +5,41 @@
     crossorigin="anonymous"></script>
     <script>
     $(document).ready(function () {
-      $("deal-button").click(function() {
-
+      $("#deal-button").click(function() {
+        $("#player-hand").append(getCardImageUrl(deal()));
+        $("#dealer-hand").append(getCardImageUrl(deal()));
       });
+      var deckTrack = [];
 
+      function deal() {
+
+      }
+      function deckCheck(card, deckTrack) { //returns false if card in deckTrack already been drawn
+        let j = deckTrack.length;
+        for(let i = 0; i< j;i++) {
+          if (deckTrack[i]===card) {return true;}
+        }
+        return false;
+      }
+
+      function deck() {
+        let x =  Math.floor(Math.random() * (13 - 1)) + 1; //point random value
+        let y =  Math.floor(Math.random() * (4 - 1)) + 1; //suit random value
+
+        var point = ['joker','ace', '2', '3', '4','5','6','7','8','9','10','jack','queen','king'];
+        var suit = ['bicycle','spades','clubs','diamonds','hearts'];
+
+        let mush = [point[x],suit[y]];
+        console.log('mush'+mush); //remove for prod
+
+        deckTrack.push(mush.join()); //adding concatenated card value to checklist
+        return [point[x],suit[y]];
+
+      }
+
+      function getCardImageUrl(card) {
+          return `<img src='images/${card[0]}_of_${card[1]}.png' width 75px height=100 px>`
+      }
 
     });
     </script>
@@ -49,8 +80,6 @@
       <label>Dealer: </label>
       <label id="dealer-points" class="points"></label>
       <div id="dealer-hand" class="hand">
-        <img src='images/2_of_clubs.png' width= 75px height=100 px>
-          <img src='images/4_of_hearts.png' width= 75px height=100 px>
       </div>
       <label>Player: </label>
       <label id="player-points" class="points"></label>
