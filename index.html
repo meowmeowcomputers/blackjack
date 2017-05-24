@@ -6,15 +6,53 @@
     <script>
     $(document).ready(function () {
       $("#deal-button").click(function() {
-        $("#player-hand").append(getCardImageUrl(deal()));
-        $("#dealer-hand").append(getCardImageUrl(deal()));
+        $("#player-hand").append(getCardImageUrl(deal('player')));
+        $("#dealer-hand").append(getCardImageUrl(deal('dealer')));
       });
       var deckTrack = [];
+      var playerPoints = 0;
+      var dealerPoints = 0;
 
-      function deal() {
+      function points(x, card) {
+        if (x = 'player') {
+
+        }
+        if (x = 'dealer') {
+
+        }
+      }
+
+
+      function checkEndOfGame () {
+        if (playerPoints > 21) { $("#messages").html('Player Busts! You lose!')}
+        if (dealerPoints >21 ){ $("#messages").html('Player Busts! You win!')}
+        }
+
+
+      function deal(x) {
+        let drawnCard = deck();
+        while (deckCheck(drawnCard, deckTrack)) {//keeps pulling cards until the card is not drawn
+          let stopThis = deckTrack.length;
+          if (stopThis >= 35) {
+            alert('End of deck!');
+            break;
+          }
+          drawnCard = deck();
+          console.log('card already drawn!')
+
+        }
+
+        let toDeckTrack = drawnCard.join();
+        deckTrack.push(toDeckTrack); //adding concatenated card value to checklist
+        console.log('after dealing deck rack stored:'+ deckTrack.length);
+        points(x, drawnCard);
+        checkEndOfGame();
+        return drawnCard;
 
       }
-      function deckCheck(card, deckTrack) { //returns false if card in deckTrack already been drawn
+
+      function deckCheck(card, deckTrack) { //returns true if card in deckTrack already been drawn
+        card = card.join();
         let j = deckTrack.length;
         for(let i = 0; i< j;i++) {
           if (deckTrack[i]===card) {return true;}
@@ -32,7 +70,6 @@
         let mush = [point[x],suit[y]];
         console.log('mush'+mush); //remove for prod
 
-        deckTrack.push(mush.join()); //adding concatenated card value to checklist
         return [point[x],suit[y]];
 
       }
