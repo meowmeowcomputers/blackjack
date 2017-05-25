@@ -55,20 +55,23 @@ $(document).ready(function () {
     var newDeck = new Deck();
     var playerHand = new Hand();
     var dealerHand = new Hand();
-
+    dealerHand.addCard(new card(newDeck.draw()));
+    $("#dealer-hand").append(dealerHand.cards[dealerHand.cards.length-1].imgUrl());
 
     $("#deal-button").click(function () {
       if (playerHand.cards.length <=5) {
         playerHand.addCard(new card(newDeck.draw()));
         $("#player-hand").append(playerHand.cards[playerHand.cards.length-1].imgUrl());
       }
+      else {}
+    });
     $("#stand-button").click(function () {
-      if (dealerHand.cards.length <= 5) {
+      while (dealerHand.cards.length < 5) {
         dealerHand.addCard(new card(newDeck.draw()));
         $("#dealer-hand").append(dealerHand.cards[dealerHand.cards.length-1].imgUrl());
       }
-    })
     });
+
   }
 
 
