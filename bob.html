@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src='blackjack.js'></script>
+
+    <style>
+    #dealer-hand {
+      margin:auto;
+      text-align: left;
+      width:50%;
+      height: 100px;
+      background: rgba(0,101,10,0.5);
+      color: green;
+      padding: 1rem;
+    }
+    #player-hand {
+      margin:auto;
+      text-align: left;
+      width:50%;
+      height: 100px;
+      background: rgba(0,0,0,0.5);
+      color: green;
+      padding: 1rem;
+      }
+    #table {
+      margin: auto;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+      background: rgba(330,101,10,0.5);
+      font-family: helvetica;
+
+    }
+    </style>
+  <title>B L A C K J A C K</title>
+  </head>
+
+    <div id="table">
+      <div id="messages"></div>
+      <label>Dealer: </label>
+      <label id="dealer-points" class="points"></label>
+      <div id="dealer-hand" class="hand">
+      </div>
+      <label>Player: </label>
+      <label id="player-points" class="points"></label>
+      <div id="player-hand" class="hand">
+      </div>
+      <div class="buttons">
+        <button id="deal-button">Deal</button>
+        <button id="hit-button">Hit</button>
+        <button id="stand-button">Stand</button>
+      </div>
+    </div>
+</html>

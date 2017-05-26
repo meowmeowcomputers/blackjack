@@ -8,6 +8,13 @@ $(document).ready(function () {
     }
 
     }
+  class ScoreCard {
+    constructor(card) {
+      this.score = score;
+    }
+    scoring(card)
+  }
+
 
   class Hand {
     constructor(cards) {
@@ -27,7 +34,7 @@ $(document).ready(function () {
   }
 
   class Deck {
-    constructor(deck) {
+    constructor() {
       let suits = ['hearts', 'diamonds', 'spades', 'clubs'];
       let faces = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king']
 
